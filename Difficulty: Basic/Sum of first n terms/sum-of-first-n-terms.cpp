@@ -13,8 +13,7 @@ class Solution {
         // code here
         if(n<1) return sum;
         sum += n*n*n;
-        n--;
-        sumOfSeries(n);
+        sumOfSeries(n-1);
     }
 };
 
