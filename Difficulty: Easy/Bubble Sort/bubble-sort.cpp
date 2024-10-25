@@ -20,17 +20,19 @@ void swap(int *xp, int *yp) {
 class Solution {
   public:
     // Function to sort the array using bubble sort algorithm.
-    void bubbleSort(int arr[], int n) {
-        // Your code here
-        for(int i=n-1;i>=0;i--){
-            for(int j=0;j<=i-1;j++){
-                if(arr[j]>arr[j+1]){
-                    int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1]= temp;
-                }
+void bubbleSort(int arr[], int n) {
+        // Base case: if the array has size 1 or less, it's sorted
+        if (n <= 1) return;
+
+        // One pass to push the largest element in the remaining part to the end
+        for (int j = 0; j < n - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
             }
         }
+
+        // Recursive call to sort the first (n-1) elements
+        bubbleSort(arr, n - 1);
     }
 };
 
@@ -62,7 +64,9 @@ int main() {
 
         ob.bubbleSort(arr, n);
         printArray(arr, n);
-    }
+    
+cout << "~" << "\n";
+}
     return 0;
 }
 // } Driver Code Ends
