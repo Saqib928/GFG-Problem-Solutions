@@ -9,17 +9,20 @@ using namespace std;
 
 class Solution {
   public:
+  void solve(vector<int>& arr,vector<int>&ans,int key,int n){
+      if(n<0) return;
+      if(arr[n]==key&&ans[1]==-1){
+          ans[1]=n;
+      }
+      if(arr[n]==key){
+          ans[0]=n;
+      }
+      solve(arr,ans,key,n-1);
+  }
     vector<int> findIndex(vector<int>& arr, int key) {
         // code here.
         vector<int>ans(2,-1);
-        for(int i=0;i<arr.size();i++){
-            if(arr[i]==key && ans[0]==-1){
-                ans[0]=i;
-            }
-            if(arr[i]==key){
-                ans[1]=i;
-            }
-        }
+        solve(arr,ans,key,arr.size()-1);
         return ans;
     }
 };
