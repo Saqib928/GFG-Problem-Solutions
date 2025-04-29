@@ -9,10 +9,11 @@ class Solution {
   public:
     bool canSplit(vector<int>& arr) {
         // code here
-        float n = arr.size(),t=0,p=0;
+        int n = arr.size(),t=0,p=0;
         for(int i=0;i<n;i++){
             t+=arr[i];
         }
+        if(t%2!=0) return false;
        for(int i=0;i<n;i++){
            p+=arr[i];
            if(p==t/2) return true;
