@@ -9,16 +9,17 @@ class Solution {
 
     sort(arr.begin(), arr.end());
     sort(dep.begin(), dep.end());
-    int j = 0;
+    int i = 0,j=0;
     int cnt = 0;
-    for (int i=0; i<n; i++) {
-        while (j<n && dep[j]<arr[i]) {
+    while(i<n && j<n){
+        if(arr[i]<=dep[j]){
+            cnt++;
+            i++;
+        }else{
             cnt--;
             j++;
         }
-        cnt++;
-        
-        res = max(res, cnt);
+        res=max(res,cnt);
     }
     
     return res;
